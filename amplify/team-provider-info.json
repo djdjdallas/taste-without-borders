@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-mygpt4visionapp-dev-124233-authRole",
+      "UnauthRoleArn": "arn:aws:iam::624700867601:role/amplify-mygpt4visionapp-dev-124233-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::624700867601:role/amplify-mygpt4visionapp-dev-124233-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-mygpt4visionapp-dev-124233-deployment",
+      "UnauthRoleName": "amplify-mygpt4visionapp-dev-124233-unauthRole",
+      "StackName": "amplify-mygpt4visionapp-dev-124233",
+      "StackId": "arn:aws:cloudformation:us-east-2:624700867601:stack/amplify-mygpt4visionapp-dev-124233/776c3950-a4f8-11ee-8f79-0a94f4b52ff3",
+      "AmplifyAppId": "d2psqvi5nslxq9"
+    }
+  }
+}
