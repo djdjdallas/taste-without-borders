@@ -1,15 +1,29 @@
 {
-  "dev": {
+  "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-mygpt4visionapp-dev-124233-authRole",
-      "UnauthRoleArn": "arn:aws:iam::624700867601:role/amplify-mygpt4visionapp-dev-124233-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::624700867601:role/amplify-mygpt4visionapp-dev-124233-authRole",
-      "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-mygpt4visionapp-dev-124233-deployment",
-      "UnauthRoleName": "amplify-mygpt4visionapp-dev-124233-unauthRole",
-      "StackName": "amplify-mygpt4visionapp-dev-124233",
-      "StackId": "arn:aws:cloudformation:us-east-2:624700867601:stack/amplify-mygpt4visionapp-dev-124233/776c3950-a4f8-11ee-8f79-0a94f4b52ff3",
-      "AmplifyAppId": "d2psqvi5nslxq9"
+      "AuthRoleName": "amplify-tastetranslator-staging-12439-authRole",
+      "UnauthRoleArn": "arn:aws:iam::624700867601:role/amplify-tastetranslator-staging-12439-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::624700867601:role/amplify-tastetranslator-staging-12439-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-tastetranslator-staging-12439-deployment",
+      "UnauthRoleName": "amplify-tastetranslator-staging-12439-unauthRole",
+      "StackName": "amplify-tastetranslator-staging-12439",
+      "StackId": "arn:aws:cloudformation:us-east-1:624700867601:stack/amplify-tastetranslator-staging-12439/ded89850-a51f-11ee-ad8c-1218e593f0f9",
+      "AmplifyAppId": "d20tc4avcnbj7x",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-tastetranslator-staging-12439-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "Tastetranslator": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "TastetranslatorPostConfirmation": {
+          "GROUP": "tastetranslator",
+          "deploymentBucketName": "amplify-tastetranslator-staging-12439-deployment",
+          "s3Key": "amplify-builds/TastetranslatorPostConfirmation-47367364366c3875347a-build.zip"
+        }
+      }
     }
   }
 }
