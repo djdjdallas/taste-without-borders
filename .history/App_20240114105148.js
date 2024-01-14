@@ -22,7 +22,17 @@ const theme = {
     colors: {
       font: {
         primary: "black",
+        // If you have a specific token for button text, update it here
       },
+      // Assuming you have a button token as well, otherwise you will need to add it
+      Button: {
+        primary: {
+          backgroundColor: "orange", // Change the button background color
+          borderColor: "orange", // Change the button border color if it's styled
+          color: "orange", // Change the text color of the button
+        },
+      },
+      // You can add other color tokens as needed
     },
   },
 };
@@ -40,17 +50,17 @@ const App = () => {
           <Stack.Navigator>
             <Stack.Screen name="Start" component={StartScreen} />
             {/* <Stack.Screen name="Sign" component={SignUpScreen} /> */}
-            <Stack.Screen
-              name="Allergy"
-              component={AllergyScreen}
-              options={{ headerShown: false }}
-            />
+            <Stack.Screen name="Allergy" component={AllergyScreen} />
             <Stack.Screen name="Dietary" component={DietaryScreen} />
             <Stack.Screen name="Spicy" component={SpicyScreen} />
             <Stack.Screen name="Culinary" component={CulinaryScreen} />
             {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
 
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{ headerShown: false }}
+            />
 
             <Stack.Screen name="ResponseScreen" component={ResponseScreen} />
             {/* You can add more screens to your navigator here */}

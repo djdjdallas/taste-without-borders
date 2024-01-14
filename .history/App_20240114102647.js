@@ -17,11 +17,61 @@ import CulinaryScreen from "./CulinaryScreen";
 // import LoginScreen from "./LoginScreen";
 
 // import AnimatedScreen from "./AnimatedScreen";
-const theme = {
+const myTheme = {
+  name: "my-theme",
   tokens: {
-    colors: {
-      font: {
-        primary: "black",
+    components: {
+      authenticator: {
+        backgroundColor: "white",
+        color: "black",
+      },
+      button: {
+        backgroundColor: "#FA4A0C",
+        borderRadius: "35px",
+        color: "white",
+        paddingBlock: "1.75rem",
+        paddingInline: "0",
+        fontWeight: "700",
+        fontSize: "1.25rem",
+        _hover: {
+          backgroundColor: "#FA4A0C",
+        },
+        _focus: {
+          backgroundColor: "#FA4A0C",
+          boxShadow: "none",
+        },
+      },
+      input: {
+        backgroundColor: "white",
+        borderColor: "#cccccc",
+        borderRadius: "0",
+        paddingBlock: "0.5rem",
+        paddingInline: "1rem",
+        _focus: {
+          borderColor: "#cccccc",
+          boxShadow: "none",
+        },
+      },
+      heading: {
+        color: "black",
+      },
+      tabs: {
+        tablist: {
+          borderBottomColor: "#cccccc",
+        },
+        tab: {
+          color: "#bbbbbb",
+          _selected: {
+            color: "#FA4A0C",
+            borderBottomColor: "#FA4A0C",
+          },
+        },
+      },
+      label: {
+        color: "black",
+      },
+      errorMessage: {
+        color: "#FA4A0C",
       },
     },
   },
@@ -40,11 +90,7 @@ const App = () => {
           <Stack.Navigator>
             <Stack.Screen name="Start" component={StartScreen} />
             {/* <Stack.Screen name="Sign" component={SignUpScreen} /> */}
-            <Stack.Screen
-              name="Allergy"
-              component={AllergyScreen}
-              options={{ headerShown: false }}
-            />
+            <Stack.Screen name="Allergy" component={AllergyScreen} />
             <Stack.Screen name="Dietary" component={DietaryScreen} />
             <Stack.Screen name="Spicy" component={SpicyScreen} />
             <Stack.Screen name="Culinary" component={CulinaryScreen} />

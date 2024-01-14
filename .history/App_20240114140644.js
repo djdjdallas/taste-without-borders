@@ -40,11 +40,7 @@ const App = () => {
           <Stack.Navigator>
             <Stack.Screen name="Start" component={StartScreen} />
             {/* <Stack.Screen name="Sign" component={SignUpScreen} /> */}
-            <Stack.Screen
-              name="Allergy"
-              component={AllergyScreen}
-              options={{ headerShown: false }}
-            />
+            <Stack.Screen name="Allergy" component={AllergyScreen} />
             <Stack.Screen name="Dietary" component={DietaryScreen} />
             <Stack.Screen name="Spicy" component={SpicyScreen} />
             <Stack.Screen name="Culinary" component={CulinaryScreen} />

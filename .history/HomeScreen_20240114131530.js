@@ -8,14 +8,12 @@ import {
   Text,
   TouchableOpacity,
   SafeAreaView,
-  Dimensions,
-  Platform,
 } from "react-native";
 import { API_KEY } from "@env";
 import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
 import { ActivityIndicator } from "react-native-paper";
-
+import { withAuthenticator } from "@aws-amplify/ui-react-native";
 import amplifyconfig from "./src/amplifyconfiguration.json";
 import { getCurrentUser, signOut } from "aws-amplify/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -26,8 +24,7 @@ const iconForAnalyzeImage = {
 const iconForAnalyzeFoodImage = {
   uri: "https://i.ibb.co/VWjgcK5/food2.png",
 };
-const windowWidth = Dimensions.get("window").width;
-const windowHeight = Dimensions.get("window").height;
+
 const HomeScreen = () => {
   const [userPreferences, setUserPreferences] = useState({});
   const { username, setUsername } = useUser();
@@ -42,8 +39,6 @@ const HomeScreen = () => {
     try {
       const user = await getCurrentUser();
       setUserInfo(user);
-      const userEmail = userInfo.signInDetails.loginId;
-      const usernamePart = userEmail.split("@")[0];
       const storedUsername = await AsyncStorage.getItem("username");
       setUsername(storedUsername || user.username);
       console.log("Fetched user info:", user);
@@ -250,8 +245,8 @@ const HomeScreen = () => {
         {userInfo && (
           <View style={styles.userInfoContainer}>
             <Text style={styles.userInfoText}>
-              Welcome,
-              {userInfo.signInDetails.loginId.split("@")[0]}
+              Welcome, {username}
+              {userInfo.loginId}
             </Text>
             {/* Display other user details as needed */}
             <TouchableOpacity
@@ -318,20 +313,12 @@ const HomeScreen = () => {
             />
           </View>
         )}
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "flex-end",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
-          <TouchableOpacity style={styles.buttonPicker} onPress={pickImage}>
-            <Text style={styles.buttonTextPicker}>
-              Pick an image from camera roll
-            </Text>
-          </TouchableOpacity>
-        </View>
+
+        <TouchableOpacity style={styles.buttonPicker} onPress={pickImage}>
+          <Text style={styles.buttonTextPicker}>
+            Pick an image from camera roll
+          </Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -349,7 +336,7 @@ const styles = StyleSheet.create({
     alignItems: "left",
   },
   titleText: {
-    fontSize: 30,
+    fontSize: 32,
     fontWeight: "bold",
     textAlign: "left",
     color: "#010203",
@@ -357,6 +344,7 @@ const styles = StyleSheet.create({
   descriptionText: {
     fontSize: 20,
     textAlign: "left",
+
     fontWeight: "300",
     color: "#010203",
   },
@@ -366,32 +354,34 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   buttonPicker: {
-    width: windowWidth * 0.8,
-    height: 70,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FA4A0C",
-
-    borderRadius: 50,
+    width: 314, // Width as per your requirement
+    height: 70, // Height as per your requirement
+    justifyContent: "center", // Center the text vertically
+    alignItems: "center", // Center the text horizontally
+    backgroundColor: "#FA4A0C", // Button background color
+    marginBottom: 10, // Distance from the bottom
+    borderRadius: 50, // Distance from the bottom
+    color: "#F6F6F9",
   },
   buttonGroup: {
+    flex: 1,
     flexDirection: "row",
-    justifyContent: "space-around",
-    width: windowWidth,
-    padding: 10,
+    gap: 15,
   },
   button: {
-    width: windowWidth * 0.4,
+    width: 160,
     height: 150,
     justifyContent: "center",
+    alignItems: "center",
+    // Assuming you want to set the width to 80% of the screen width
     alignItems: "center",
     backgroundColor: "white",
     borderRadius: 40,
     overflow: "visible",
     shadowColor: "black",
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 5 }, // X and Y offset of the shadow
+    shadowOpacity: 0.2, // Opacity of the shadow
+    shadowRadius: 10, // Blur radius of the shadow
     elevation: 5,
   },
   pickButton: {
@@ -427,17 +417,15 @@ const styles = StyleSheet.create({
     // Space between icon and text
   },
   imageContainer: {
-    width: windowWidth * 0.8,
-    height: windowHeight * 0.3,
+    width: 200,
+    height: 200,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 0,
+    marginBottom: 10,
   },
   image: {
-    width: "70%",
-    height: "70%",
-    resizeMode: "contain",
-    marginBottom: 50,
+    width: "75%",
+    height: "75%",
   },
   halfImage: {
     position: "absolute",
@@ -471,12 +459,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center", // Added to vertically center items in the container
     width: "100%", // Make sure container takes full width
+    gap: 50,
   },
   userInfoText: {
-    fontSize: Platform.OS === "android" ? 14 : 16,
+    fontSize: 16,
     color: "#333",
-    flex: 1,
-    fontWeight: "bold",
+    flex: 1, // Added to ensure it takes available space
   },
   signOutButton: {
     backgroundColor: "#FA4A0C",
@@ -498,7 +486,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#333",
     textAlign: "center",
-    fontWeight: "bold",
   },
 });
 

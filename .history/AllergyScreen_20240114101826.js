@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const answers = ["Yes, it’s a survival thing.", "No, I’m an iron stomach!"];
 import allergy from "./assets/Allergy.png";
-import { withAuthenticator } from "@aws-amplify/ui-react-native";
+
 const AllergyScreen = () => {
   const navigation = useNavigation();
   const [selectedAnswer, setSelectedAnswer] = useState(null);

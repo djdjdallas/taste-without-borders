@@ -471,12 +471,14 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center", // Added to vertically center items in the container
     width: "100%", // Make sure container takes full width
+    gap: 50,
   },
   userInfoText: {
     fontSize: Platform.OS === "android" ? 14 : 16,
     color: "#333",
     flex: 1,
     fontWeight: "bold",
+    textAlign: "left",
   },
   signOutButton: {
     backgroundColor: "#FA4A0C",
@@ -498,7 +500,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#333",
     textAlign: "center",
-    fontWeight: "bold",
   },
 });
 

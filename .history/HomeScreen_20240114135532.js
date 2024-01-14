@@ -322,7 +322,7 @@ const HomeScreen = () => {
           style={{
             flex: 1,
             justifyContent: "flex-end",
-            alignItems: "center",
+            aligncontent: "center",
             width: "100%",
           }}
         >
@@ -371,7 +371,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FA4A0C",
-
+    marginBottom: 10,
     borderRadius: 50,
   },
   buttonGroup: {
@@ -431,13 +431,12 @@ const styles = StyleSheet.create({
     height: windowHeight * 0.3,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 0,
+    marginBottom: 10,
   },
   image: {
     width: "70%",
     height: "70%",
     resizeMode: "contain",
-    marginBottom: 50,
   },
   halfImage: {
     position: "absolute",
@@ -471,12 +470,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center", // Added to vertically center items in the container
     width: "100%", // Make sure container takes full width
+    gap: 50,
   },
   userInfoText: {
     fontSize: Platform.OS === "android" ? 14 : 16,
     color: "#333",
     flex: 1,
-    fontWeight: "bold",
   },
   signOutButton: {
     backgroundColor: "#FA4A0C",
@@ -498,7 +497,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#333",
     textAlign: "center",
-    fontWeight: "bold",
   },
 });
 

@@ -177,4 +177,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withAuthenticator(AllergyScreen);
+export default AllergyScreen;
