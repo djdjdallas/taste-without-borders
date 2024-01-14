@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from "react-native";
-import { API_KEY } from "@env";
+import "dotenv/config";
 import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
 import { ActivityIndicator } from "react-native-paper";
@@ -24,6 +24,7 @@ const iconForAnalyzeImage = {
 const iconForAnalyzeFoodImage = {
   uri: "https://i.ibb.co/VWjgcK5/food2.png",
 };
+import Constants from "expo-constants";
 
 const HomeScreen = () => {
   const [userPreferences, setUserPreferences] = useState({});
@@ -118,7 +119,7 @@ const HomeScreen = () => {
   const analyzeImage = async () => {
     if (selectedImage) {
       setIsLoading(true);
-      const apiKey = API_KEY; // Replace with your actual API key
+      const apiKey = process.env.API_KEY; // Replace with your actual API key
       const endpoint = "https://api.openai.com/v1/chat/completions"; // Replace with your actual API endpoint
 
       const payload = {
@@ -180,7 +181,7 @@ const HomeScreen = () => {
   const analyzeFoodImage = async () => {
     if (selectedImage) {
       setIsLoading(true);
-      const apiKey = API_KEY; // Replace with your actual API key
+      const apiKey = process.env.API_KEY; // Replace with your actual API key
       const endpoint = "https://api.openai.com/v1/chat/completions"; // Replace with your actual API endpoint
 
       const payload = {

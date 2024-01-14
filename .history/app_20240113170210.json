@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "MyGPT4VisionApp",
+    "slug": "MyGPT4VisionApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#E93213"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.djdallas.MyGPT4VisionApp"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "API_KEY": "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"
+    }
+  }
+}
