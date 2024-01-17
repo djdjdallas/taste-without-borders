@@ -8,7 +8,6 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
-  SafeAreaView,
 } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
@@ -23,36 +22,34 @@ const ResponseScreen = ({ route }) => {
   }, [navigation]);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        {selectedImage && (
-          <Image
-            source={{ uri: `data:image/jpeg;base64,${selectedImage}` }}
-            style={styles.image}
-          />
-        )}
-        <ScrollView style={styles.scrollView}>
-          {responseItems.map((item, index) => (
-            <View key={index} style={styles.textContainer}>
-              <Text style={styles.dishName}>{item.name}</Text>
-              {item.ingredients.map((ingredient, idx) => (
-                <Text key={idx} style={styles.ingredient}>
-                  {ingredient}
-                </Text>
-              ))}
-            </View>
-          ))}
-        </ScrollView>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.goBack()}
-          >
-            <Text style={styles.buttonText}>Go Back</Text>
-          </TouchableOpacity>
-        </View>
+    <View style={styles.container}>
+      {selectedImage && (
+        <Image
+          source={{ uri: `data:image/jpeg;base64,${selectedImage}` }}
+          style={styles.image}
+        />
+      )}
+      <ScrollView style={styles.scrollView}>
+        {responseItems.map((item, index) => (
+          <View key={index} style={styles.textContainer}>
+            <Text style={styles.dishName}>{item.name}</Text>
+            {item.ingredients.map((ingredient, idx) => (
+              <Text key={idx} style={styles.ingredient}>
+                {ingredient}
+              </Text>
+            ))}
+          </View>
+        ))}
+      </ScrollView>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.goBack()}
+        >
+          <Text style={styles.buttonText}>Go Back</Text>
+        </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -93,8 +90,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: windowHeight * 0.3, // Responsive height
     resizeMode: "contain",
-    marginTop: 5,
-    marginBottom: 15,
+    marginTop: 40,
   },
   buttonContainer: {
     justifyContent: "center",

@@ -93,8 +93,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: windowHeight * 0.3, // Responsive height
     resizeMode: "contain",
-    marginTop: 5,
-    marginBottom: 15,
+    marginTop: 40,
   },
   buttonContainer: {
     justifyContent: "center",
